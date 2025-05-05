@@ -1,0 +1,23 @@
+class TextAnalzer(object):
+    def __init__ (self, text):
+        self.text = text
+
+        # remove punctuation
+        
+        self.remove_punctuation = text.replace('.','').replace('!','').replace('?','').replace(',','')
+           
+        # make text lowercase
+        
+        self.to_lower_case = self.remove_punctuation.lower()
+
+    def show_steps(self):
+          print("Original Text: ", self.text)
+          print("After Removing Punctuation: ", self.remove_punctuation)
+          print("After Lowercase: ", self.to_lower_case)
+            
+
+       
+# t = TextAnalzer("Ahoj, světe! Jak se máš?")
+# print(t.text)    =>        původní text
+# print(t.remove_punctuation)   => bez interpunkce
+# print(t.to_lower_case)   => bez interpunkce a v malých písmenech
