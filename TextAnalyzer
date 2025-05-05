@@ -3,11 +3,9 @@ class TextAnalzer(object):
         self.text = text
 
         # remove punctuation
-        
         self.remove_punctuation = text.replace('.','').replace('!','').replace('?','').replace(',','')
            
-        # make text lowercase
-        
+        # make text lowercase - musí být lowercase, aby se mi později ve slovníku slovo Ahoj a ahoj netvářily jako dvě různá slova
         self.to_lower_case = self.remove_punctuation.lower()
 
     def show_steps(self):
@@ -15,9 +13,30 @@ class TextAnalzer(object):
           print("After Removing Punctuation: ", self.remove_punctuation)
           print("After Lowercase: ", self.to_lower_case)
             
-
        
 # t = TextAnalzer("Ahoj, světe! Jak se máš?")
 # print(t.text)    =>        původní text
 # print(t.remove_punctuation)   => bez interpunkce
 # print(t.to_lower_case)   => bez interpunkce a v malých písmenech
+
+    def freqAll(self):
+        # Split text into words
+        words = self.to_lower_case.split() 
+        
+        # Create dictionary
+        dictionary = {}
+
+        for word in words:    # => projdi slova ve words (tj. jednotlivá slova bez interpunkce, zkontroluj, jestli už je ve slovníku. pokud ano, přidej ke slovu 1, pokud ne, nastav hodnotu počtu na 1)
+            if word in dictionary:
+                dictionary[word] += 1
+            else:
+                dictionary[word] = 1
+
+        return dictionary
+
+        # metoda počítající kolikrát se v textu objeví konkrétní slovo
+
+    def word_count(self, word):
+        freq_map = self.freqAll()
+        return freq_map.get(word, 0) # => vrátí frekvenci slova nebo 0, pokud tam není
+    
