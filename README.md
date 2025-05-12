@@ -16,3 +16,4 @@ python ibm course coursera
     - reading line  
     - looping through lines  
 
+### 3. Writing into files with open() method
