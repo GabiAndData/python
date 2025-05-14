@@ -19,3 +19,5 @@ python ibm course coursera
 ### 3. Writing into files with open() method
 
 ### 4. Pandas
+
+### 5. Pandas, loc() and iloc() functions
