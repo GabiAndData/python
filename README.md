@@ -17,3 +17,5 @@ python ibm course coursera
     - looping through lines  
 
 ### 3. Writing into files with open() method
+
+### 4. Pandas
