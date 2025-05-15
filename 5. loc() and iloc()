@@ -1,0 +1,22 @@
+loc() is a label-based data selecting method which means that we have to pass the name of the row or column that we want to select. This method includes the last element of the range passed in it.
+
+Simple syntax for your understanding:
+
+loc[row_label, column_label]
+iloc() is an indexed-based selecting method which means that we have to pass an integer index in the method to select a specific row/column. This method does not include the last element of the range passed in it.
+
+Simple syntax for your understanding:
+
+iloc[row_index, column_index]
+
+
+
+df.iloc[0, 0]  # Access the value on the first row and the first column
+
+df.iloc[0,2]  # Access the value on the first row and the third column
+
+df.loc[0, 'Salary']  # Access the column using the name
+
+df2.head()  #To display the first 5 rows of a dataframe df2
+
+df2.loc['Jane', 'Salary']  #Now, let us access the column using the name
