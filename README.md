@@ -21,3 +21,5 @@ python ibm course coursera
 ### 4. Pandas
 
 ### 5. Pandas, loc() and iloc() functions
+
+### 6. Nympy basics
