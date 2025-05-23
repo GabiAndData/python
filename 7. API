@@ -1,0 +1,11 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dict_={'a':[11,21,31],'b':[12,22,32]} # vytvářím dictionary
+
+df=pd.DataFrame(dict_)   #vytvářím proměnnou df, která bere dictionary a pomocí metody dataFrame, která je obsahem pandas z dictionary udělá tabulku
+type(df)                 #tímhle se ptám na typ proměnné df
+df.head()                #volám metodu head, která zobrazí prvních 5 řádků tabulky
+
+
+
