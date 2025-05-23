@@ -1,0 +1,30 @@
+import numpy as np
+import pandas as pd
+
+URL="https://web.archive.org/web/20230902185326/https://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29"
+
+tables = pd.read_html(URL) # na stránce uložený v URL najdu všechny tabulky (cokoliv, co má v html tag table)
+df = tables[3]             # načtu 3. tabulku v pořadí
+
+df.columns = range(df.shape[1]) # na df tabulku - takže 3.tabulka z URL použiju built-in funkci range, která vytváří sekvenci čísel. a ta sekvence má být od 0 do (df.shape[1]) => počet sloupců tabulky. kdyby df.shape[0] => by to znamenalo počet řádků tabulky
+
+df = df[[0,2]]         #zahazuju všechny sloupce krom 1. a 3., nově teda je v proměnné df místo x sloupců jen tabulka o 2 sloupcích
+df = df.iloc[1:11,:]    # a teď metodou iloc hledám jen určité řádky (1:11 = 2.-12.řádek - přicházím o záhlaví) a sloupce (: znamená všechny sloupce)
+df.columns = ['Country','GDP (Million USD)']  #přejmenuju sloupce z 0 a 2 na country a gdp. pozor! nevytvářím nový řádek tabulky. jen pojmenovávám sloupce
+
+POKRAČOVÁNÍ CVIČENÍ NUMPY
+
+Exercise 2
+Modify the GDP column of the DataFrame, converting the value available in Million USD to Billion USD. 
+Use the round() method of Numpy library to round the value to 2 decimal places. 
+Modify the header of the DataFrame to GDP (Billion USD).
+
+df['GDP (Million USD)'] = df['GDP (Million USD)'].astype(int)
+df['GDP (Million USD)'] = df['GDP (Million USD)'] / 1000
+df['GDP (Million USD)'] = np.round(df['GDP (Million USD)'],2)
+df.rename(columns = {'GDP (Million USD)' : 'GDP (Billion USD)'})
+
+Exercise 3
+Load the DataFrame to the CSV file named "Largest_economies.csv"
+
+df.to_csv(./Largest_economies.csv)
