@@ -25,3 +25,5 @@ python ibm course coursera
 ### 6. Nympy basics
 
 ### 7. Introduction to API
+
+### 8. HTTP and Requests
